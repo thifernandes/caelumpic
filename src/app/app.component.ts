@@ -1,5 +1,4 @@
-import { Component, Inject } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,14 +6,5 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Caelum Pic';
-  listaFotos;
-
-  constructor(http: HttpClient) {
-    http.get('http://localhost:3000/v1/fotos')
-      .subscribe(
-        fotosApi => this.listaFotos = fotosApi,
-        erro => console.log(erro)
-    );
-  }
+    
 }
