@@ -2,6 +2,9 @@
   <h1 class="text-center">{{ title }}</h1>
 </header>
 <main class="container">
-  <foto titulo="Leão" url="assets/img/leao.jpg"></foto>
-  <foto titulo="Cachorro" url="assets/img/cachorro.jpg"></foto>
+  <div class="row">
+    <painel *ngFor="let foto of listaFotos" titulo="{{foto.titulo}}" class="col-md-2">
+        <foto titulo="{{foto.titulo}}" url="{{foto.url}}"></foto>
+    </painel>
+  </div>
 </main>
