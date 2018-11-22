@@ -1,5 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { FotoService } from '../servicos/foto.service';
 
 @Component({
   selector: 'listagem',
@@ -11,9 +12,8 @@ export class ListagemComponent implements OnInit {
   title = 'Caelum Pic';
   listaFotos;
 
-  constructor(http: HttpClient) {
-    http.get('http://localhost:3000/v1/fotos')
-      .subscribe(
+  constructor(private servico: FotoService) {
+    servico.listar().subscribe(
         fotosApi => this.listaFotos = fotosApi,
         erro => console.log(erro)
     );

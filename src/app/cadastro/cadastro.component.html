@@ -4,18 +4,27 @@
 
 <main class="container">
   <section class="row">
-    <form (submit)="salvar($event)" class="col-sm-7">
+    <form (ngSubmit)="salvar()" class="col-sm-7">
       <div class="form-group">
         <label>Título</label>
-        <input type="text" value="{{foto.titulo}}" class="form-control">
+        <input type="text" 
+          name="titulo"
+          [(ngModel)]="foto.titulo"
+          class="form-control">
       </div>
       <div class="form-group">
         <label>URL</label>
-        <input type="text" value="{{foto.url}}" class="form-control">
+        <input type="text" 
+          name="url"
+          [(ngModel)]="foto.url"
+          class="form-control">
       </div>
       <div class="form-group">
         <label>Descrição</label>
-        <textarea class="form-control">{{foto.descricao}}</textarea>
+        <textarea class="form-control"
+          name="descricao" 
+          [(ngModel)]="foto.descricao">
+        </textarea>
       </div>
 
       <a routerLink="/listagem" class="btn btn-secondary mr-2">Voltar</a>
@@ -23,7 +32,11 @@
       <button type="submit" class="btn btn-primary">Salvar</button>
     </form>
     <aside class="col-sm-5">
-      <!-- preview do cadastro -->
+      <h3 class="text-center">Preview</h3>
+      <painel titulo="{{foto.titulo}}">
+        <foto url="{{foto.url}}" titulo="{{foto.titulo}}"></foto>
+      </painel>
+
     </aside>
   </section>
 </main>
