@@ -1,5 +1,4 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { FotoService } from '../servicos/foto.service';
 import { FotoComponent } from '../foto/foto.component';
 

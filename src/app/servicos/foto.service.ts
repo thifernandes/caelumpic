@@ -20,11 +20,19 @@ export class FotoService {
         return this.http.get<FotoComponent[]>(this.url);
     }
 
-    salvar(foto: FotoComponent): Observable<FotoComponent[]> {
+    incluir(foto: FotoComponent): Observable<FotoComponent[]> {
         return this.http.post<FotoComponent[]>(this.url, foto, this.cabecalho);
     }
 
     remover(foto: FotoComponent): Observable<Object> {
         return this.http.delete(this.url + foto._id);
+    }
+
+    obter(id: string): Observable<FotoComponent> {
+        return this.http.get<FotoComponent>(this.url + id);
+    }
+
+    alterar(foto: FotoComponent): Observable<FotoComponent> {
+        return this.http.put<FotoComponent>(this.url + foto._id, foto);
     }
 }

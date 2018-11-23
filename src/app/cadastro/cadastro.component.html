@@ -3,12 +3,16 @@
 </header>
 
 <main class="container">
+  <div class="row">
+      <div class="col-sm-12">
+        <p class="alert alert-success" *ngIf="mensagem">{{mensagem}}</p>
+      </div>
+    </div>
   <section class="row">
     <form (ngSubmit)="salvar()" class="col-sm-7">
       <div class="form-group">
         <label>Título</label>
-        <input type="text" 
-          name="titulo"
+        <input type="text" name="titulo"
           [(ngModel)]="foto.titulo"
           class="form-control">
       </div>
@@ -36,7 +40,6 @@
       <painel titulo="{{foto.titulo}}">
         <foto url="{{foto.url}}" titulo="{{foto.titulo}}"></foto>
       </painel>
-
     </aside>
   </section>
 </main>

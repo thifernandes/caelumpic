@@ -5,6 +5,7 @@ import { ListagemComponent } from './listagem/listagem.component';
 const rotasApp: Routes = [
     {path: '', component: ListagemComponent}, //se for endereco vazio, redireciona para a tela de listagem.
     {path: 'cadastro', component: CadastroComponent},
+    {path: 'cadastro/:idFoto', component: CadastroComponent},
     {path: '**', redirectTo: ''} //redireciona para uma pagina vazia.
 ];
 
