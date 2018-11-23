@@ -23,4 +23,8 @@ export class FotoService {
     salvar(foto: FotoComponent): Observable<FotoComponent[]> {
         return this.http.post<FotoComponent[]>(this.url, foto, this.cabecalho);
     }
+
+    remover(foto: FotoComponent): Observable<Object> {
+        return this.http.delete(this.url + foto._id);
+    }
 }

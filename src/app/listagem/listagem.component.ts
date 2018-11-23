@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FotoService } from '../servicos/foto.service';
+import { FotoComponent } from '../foto/foto.component';
 
 @Component({
   selector: 'listagem',
@@ -11,6 +12,7 @@ export class ListagemComponent implements OnInit {
 
   title = 'Caelum Pic';
   listaFotos;
+  mensagem;
 
   constructor(private servico: FotoService) {
     servico.listar().subscribe(
@@ -19,6 +21,22 @@ export class ListagemComponent implements OnInit {
     );
   }
   
+  remover(foto: FotoComponent) {
+    this.servico.remover(foto).subscribe(
+      () => {
+        this.mensagem = `Foto ${foto.titulo} removida com sucesso.`;
+        this.listaFotos = this.listaFotos.filter(f => f._id !== foto._id);
+
+        setTimeout(
+          () => this.mensagem = '', 5000
+        );
+      }
+      , erro => console.log(erro)
+    );
+
+
+  }
+
   ngOnInit() {
   }
 }
